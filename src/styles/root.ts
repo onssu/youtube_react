@@ -3,8 +3,8 @@ export const Root = {
   blackColor: "#140a00",
   blueColor: "#045fd4",
   redColor: "#ff0000",
-  greyDarkBbcolor: "#909090",
-  greyLightColor: "#e0e0e0",
+  grayDarkColor: "#909090",
+  grayLightColor: "#e0e0e0",
 
   spacing: "12px",
   spacingSmall: "6px",

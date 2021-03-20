@@ -14,16 +14,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import snoopy from "components/snoopy.jpg";
 
 const Home: React.FC = () => {
   return (
     <Container>
       {/* Header */}
       <Header>
-        <Logo>
+        <div>
           <FontAwesomeIcon icon={faYoutube} color="#ff0000" />
-          <Title>Youtube</Title>
-        </Logo>
+          <span>Youtube</span>
+        </div>
         <Icon>
           <FontAwesomeIcon icon={faSearch} />
           <FontAwesomeIcon icon={faEllipsisV} />
@@ -32,7 +33,7 @@ const Home: React.FC = () => {
 
       {/* Video Player */}
       <Player>
-        <Video controls src="./components/Cat.mp4" />
+        <Video controls src={require("components/Cat.mp4")} />
       </Player>
 
       <InfoAndUpNext>
@@ -46,9 +47,9 @@ const Home: React.FC = () => {
               <li>#Cute</li>
             </Hashtags>
             <TitleAndButton>
-              <Title>유리는 고양이를 좋아합니다.</Title>
+              <span>유리는 고양이를 좋아합니다.</span>
               <MoreBtn>
-                <FontAwesomeIcon icon={faCaretDown} />
+                <FontAwesomeIcon icon={faCaretDown} size="2x" />
               </MoreBtn>
             </TitleAndButton>
             <Views>1M views 1 day ago</Views>
@@ -58,31 +59,31 @@ const Home: React.FC = () => {
           <Actions>
             <li>
               <button>
-                <FontAwesomeIcon icon={faThumbsUp} />
+                <FontAwesomeIcon icon={faThumbsUp} size="2x" />
                 <span>1K</span>
               </button>
             </li>
             <li>
               <button>
-                <FontAwesomeIcon icon={faThumbsDown} />
+                <FontAwesomeIcon icon={faThumbsDown} size="2x" />
                 <span>0</span>
               </button>
             </li>
             <li>
               <button>
-                <FontAwesomeIcon icon={faShare} />
+                <FontAwesomeIcon icon={faShare} size="2x" />
                 <span>Share</span>
               </button>
             </li>
             <li>
               <button>
-                <FontAwesomeIcon icon={faPlus} />
+                <FontAwesomeIcon icon={faPlus} size="2x" />
                 <span>Save</span>
               </button>
             </li>
             <li>
               <button>
-                <FontAwesomeIcon icon={faFontAwesomeFlag} />
+                <FontAwesomeIcon icon={faFontAwesomeFlag} size="2x" />
                 <span>Report</span>
               </button>
             </li>
@@ -91,11 +92,11 @@ const Home: React.FC = () => {
           {/* Channel Description */}
           <Channel>
             <Metadata>
-              <img src="components/snoopy.jpg" alt="" />
-              <Info>
+              <img src={snoopy} alt="" />
+              <div>
                 <Name>유리</Name>
                 <Subscribers>1M subscribers</Subscribers>
-              </Info>
+              </div>
             </Metadata>
             <Subscribe>subscribe</Subscribe>
           </Channel>
@@ -103,14 +104,14 @@ const Home: React.FC = () => {
 
         {/* Up Next */}
         <UpNext>
-          <Title>Up Next</Title>
+          <title>Up Next</title>
           <ul>
             <Item>
               <Img>
-                <img src="/components/snoopy.jpg" alt="" />
+                <img src={snoopy} alt="" />
               </Img>
               <ItemInfo>
-                <Title>유리는 강아지도 좋아한다.</Title>
+                <title>유리는 강아지도 좋아한다.</title>
                 <Name>유리</Name>
                 <Views>82K views</Views>
               </ItemInfo>
@@ -120,10 +121,10 @@ const Home: React.FC = () => {
             </Item>
             <Item>
               <Img>
-                <img src="/components/snoopy.jpg" alt="" />
+                <img src={snoopy} alt="" />
               </Img>
               <ItemInfo>
-                <Title>유리는 동물을 좋아한다.</Title>
+                <title>유리는 동물을 좋아한다.</title>
                 <Name>유리</Name>
                 <Views>82K views</Views>
               </ItemInfo>
@@ -133,10 +134,10 @@ const Home: React.FC = () => {
             </Item>
             <Item>
               <Img>
-                <img src="/components/snoopy.jpg" alt="" />
+                <img src={snoopy} alt="" />
               </Img>
               <ItemInfo>
-                <Title>유리는 귀여운걸 좋아한다.</Title>
+                <title>유리는 귀여운걸 좋아한다.</title>
                 <Name>유리</Name>
                 <Views>82K views</Views>
               </ItemInfo>
@@ -167,16 +168,24 @@ const Header = styled.div`
   justify-content: space-between;
   padding: ${(props: any) => props.theme.spacing};
   background-color: ${(props: any) => props.theme.blackColor};
-  color: ${(props: any) => props.theme.whiteColor};
-`;
 
-const Logo = styled.div`
-  font-size: ${(props: any) => props.theme.fontLarge};
-  color: ${(props: any) => props.theme.redColor};
+  div {
+    font-size: ${(props: any) => props.theme.fontLarge};
+
+    FontAwesomeIcon {
+      color: ${(props: any) => props.theme.redColor};
+    }
+
+    span {
+      color: ${(props: any) => props.theme.whiteColor};
+    }
+  }
 `;
 
 const Icon = styled.div`
-  margin-right: ${(props: any) => props.theme.spacing};
+  FontAwesomeIcon {
+    margin-right: ${(props: any) => props.theme.spacing};
+  }
 `;
 
 const Player = styled.section`
@@ -202,18 +211,51 @@ const Hashtags = styled.ul`
   display: flex;
   font-size: ${(props: any) => props.theme.fontSmall};
   color: ${(props: any) => props.theme.blueColor};
+
+  li {
+    margin-right: ${(props: any) => props.theme.spacing};
+  }
 `;
 
-const TitleAndButton = styled.div``;
+const TitleAndButton = styled.div`
+  display: flex;
 
-const MoreBtn = styled.button``;
+  span {
+    font-size: ${(props: any) => props.theme.fontMedium};
+    margin-right: ${(props: any) => props.theme.spacing};
+  }
+`;
 
-const Views = styled.span``;
+const MoreBtn = styled.button`
+  height: 100%;
+  transition: transform 300ms ease-in-out;
+  clicked {
+    transform: rotate(180deg);
+  }
+`;
+
+const Views = styled.span`
+  font-size: ${(props: any) => props.theme.fontSmall};
+  color: ${(props: any) => props.theme.grayDarkColor};
+`;
 
 const Actions = styled.ul`
   display: flex;
   justify-content: space-around;
   margin: ${(props: any) => props.theme.spacing} 0;
+
+  button {
+    display: flex;
+    flex-direction: column;
+    font-size: ${(props: any) => props.theme.fontSmall};
+    color: ${(props: any) => props.theme.grayDarkColor};
+
+    FontAwesomeIcon {
+      margin: 0 auto;
+      margin-bottom: ${(props: any) => props.theme.spacingSmall} 0;
+      font-size: ${(props: any) => props.theme.fontRegular};
+    }
+  }
 `;
 
 const Channel = styled.div`
@@ -221,6 +263,24 @@ const Channel = styled.div`
   justify-content: space-between;
   border-top: 1px solid ${(props: any) => props.theme.grayLightColor};
   border-bottom: 1px solid ${(props: any) => props.theme.grayLightColor};
+
+  Metadata {
+    display: flex;
+    align-items: center;
+    padding: ${(props: any) => props.theme.spacingSmall} 0;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    width: ${(props: any) => props.theme.avatarSize};
+    height: ${(props: any) => props.theme.avatarSize};
+    border-radius: 50%;
+    margin-right: ${(props: any) => props.theme.spacing};
+  }
 `;
 
 const Name = styled.span`
@@ -240,9 +300,18 @@ const Subscribe = styled.button`
 
 const UpNext = styled.section`
   padding: 0 ${(props: any) => props.theme.spacing};
+
+  .title {
+    font-size: ${(props: any) => props.theme.fontMedium};
+    color: ${(props: any) => props.theme.grayDarkColor};
+    margin-bottom: ${(props: any) => props.theme.spacingSmall};
+  }
 `;
 
-const Item = styled.li``;
+const Item = styled.li`
+  display: flex;
+  margin-top: ${(props: any) => props.theme.spacing};
+`;
 
 const Img = styled.div`
   flex-basis: 35%;
