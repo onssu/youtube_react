@@ -21,39 +21,39 @@ const Home: React.FC = () => {
     <Container>
       {/* Header */}
       <Header>
-        <div>
+        <div className="logo">
           <FontAwesomeIcon icon={faYoutube} color="#ff0000" />
-          <span>Youtube</span>
+          <span className="title">Youtube</span>
         </div>
-        <Icon>
-          <FontAwesomeIcon icon={faSearch} />
+        <div className="icons">
+          <FontAwesomeIcon icon={faSearch} margin-right="12px" />
           <FontAwesomeIcon icon={faEllipsisV} />
-        </Icon>
+        </div>
       </Header>
 
       {/* Video Player */}
       <Player>
-        <Video controls src={require("components/Cat.mp4")} />
+        <video controls src={require("components/Cat.mp4")} />
       </Player>
 
       <InfoAndUpNext>
         {/* Video Info */}
-        <Info>
+        <section className="info">
           {/* Meta Data */}
-          <Metadata>
-            <Hashtags>
+          <div className="metadata">
+            <ul className="hashtags">
               <li>#Yuri</li>
               <li>#Cat</li>
               <li>#Cute</li>
-            </Hashtags>
-            <TitleAndButton>
-              <span>유리는 고양이를 좋아합니다.</span>
-              <MoreBtn>
-                <FontAwesomeIcon icon={faCaretDown} size="2x" />
-              </MoreBtn>
-            </TitleAndButton>
-            <Views>1M views 1 day ago</Views>
-          </Metadata>
+            </ul>
+            <div className="titleAndButton">
+              <span className="title">유리는 고양이를 좋아합니다.</span>
+              <button className="moreBtn">
+                <FontAwesomeIcon icon={faCaretDown} />
+              </button>
+            </div>
+            <span className="views">1M views 1 day ago</span>
+          </div>
 
           {/* Actions */}
           <Actions>
@@ -91,60 +91,60 @@ const Home: React.FC = () => {
 
           {/* Channel Description */}
           <Channel>
-            <Metadata>
+            <div className="metadata">
               <img src={snoopy} alt="" />
-              <div>
-                <Name>유리</Name>
-                <Subscribers>1M subscribers</Subscribers>
+              <div className="info">
+                <span className="name">유리</span>
+                <span className="subscribers">1M subscribers</span>
               </div>
-            </Metadata>
-            <Subscribe>subscribe</Subscribe>
+            </div>
+            <button className="subscribe">subscribe</button>
           </Channel>
-        </Info>
+        </section>
 
         {/* Up Next */}
         <UpNext>
-          <title>Up Next</title>
+          <span className="title">Up Next</span>
           <ul>
-            <Item>
-              <Img>
+            <li className="item">
+              <div className="image">
                 <img src={snoopy} alt="" />
-              </Img>
-              <ItemInfo>
-                <title>유리는 강아지도 좋아한다.</title>
-                <Name>유리</Name>
-                <Views>82K views</Views>
-              </ItemInfo>
-              <MoreBtn>
+              </div>
+              <div className="itemInfo">
+                <span className="title">유리는 강아지도 좋아한다.</span>
+                <span className="name">유리</span>
+                <span className="views">82K views</span>
+              </div>
+              <button className="moreBtn">
                 <FontAwesomeIcon icon={faEllipsisV} />
-              </MoreBtn>
-            </Item>
-            <Item>
-              <Img>
+              </button>
+            </li>
+            <li className="item">
+              <div className="image">
                 <img src={snoopy} alt="" />
-              </Img>
-              <ItemInfo>
-                <title>유리는 동물을 좋아한다.</title>
-                <Name>유리</Name>
-                <Views>82K views</Views>
-              </ItemInfo>
-              <MoreBtn>
+              </div>
+              <div className="itemInfo">
+                <span className="title">유리는 동물을 좋아한다.</span>
+                <span className="name">유리</span>
+                <span className="views">82K views</span>
+              </div>
+              <button className="moreBtn">
                 <FontAwesomeIcon icon={faEllipsisV} />
-              </MoreBtn>
-            </Item>
-            <Item>
-              <Img>
+              </button>
+            </li>
+            <li className="item">
+              <div className="image">
                 <img src={snoopy} alt="" />
-              </Img>
-              <ItemInfo>
-                <title>유리는 귀여운걸 좋아한다.</title>
-                <Name>유리</Name>
-                <Views>82K views</Views>
-              </ItemInfo>
-              <MoreBtn>
+              </div>
+              <div className="itemInfo">
+                <span className="title">유리는 귀여운걸 좋아한다.</span>
+                <span className="name">유리</span>
+                <span className="views">82K views</span>
+              </div>
+              <button className="moreBtn">
                 <FontAwesomeIcon icon={faEllipsisV} />
-              </MoreBtn>
-            </Item>
+              </button>
+            </li>
           </ul>
         </UpNext>
       </InfoAndUpNext>
@@ -159,32 +159,29 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const Title = styled.span`
-  font-size: ${(props: any) => props.theme.fontLarge};
-`;
-
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   padding: ${(props: any) => props.theme.spacing};
   background-color: ${(props: any) => props.theme.blackColor};
+  color: ${(props: any) => props.theme.whiteColor};
+  font-family: roboto;
 
-  div {
+  .logo {
     font-size: ${(props: any) => props.theme.fontLarge};
 
-    FontAwesomeIcon {
+    svg {
       color: ${(props: any) => props.theme.redColor};
-    }
-
-    span {
-      color: ${(props: any) => props.theme.whiteColor};
+      margin-right: ${(props: any) => props.theme.spacingSmall};
     }
   }
-`;
 
-const Icon = styled.div`
-  FontAwesomeIcon {
-    margin-right: ${(props: any) => props.theme.spacing};
+  .icons {
+    color: ${(props: any) => props.theme.whiteColor};
+
+    svg {
+      margin-right: ${(props: any) => props.theme.spacing};
+    }
   }
 `;
 
@@ -193,50 +190,64 @@ const Player = styled.section`
   top: 0;
   text-align: center;
   background-color: ${(props: any) => props.theme.blackColor};
-`;
 
-const Video = styled.video`
-  width: 100%;
-  height: 100%;
-  max-width: 600px;
-`;
-
-const InfoAndUpNext = styled.div``;
-
-const Info = styled.section``;
-
-const Metadata = styled.div``;
-
-const Hashtags = styled.ul`
-  display: flex;
-  font-size: ${(props: any) => props.theme.fontSmall};
-  color: ${(props: any) => props.theme.blueColor};
-
-  li {
-    margin-right: ${(props: any) => props.theme.spacing};
+  video {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
   }
 `;
 
-const TitleAndButton = styled.div`
-  display: flex;
+const InfoAndUpNext = styled.div`
+  .info {
+    padding: ${(props: any) => props.theme.spacing};
 
-  span {
-    font-size: ${(props: any) => props.theme.fontMedium};
-    margin-right: ${(props: any) => props.theme.spacing};
+    .metadata {
+      .hashtags {
+        display: flex;
+        font-size: ${(props: any) => props.theme.fontSmall};
+        color: ${(props: any) => props.theme.blueColor};
+
+        li {
+          margin-right: ${(props: any) => props.theme.spacing};
+        }
+      }
+
+      .titleAndButton {
+        display: flex;
+
+        .title {
+          font-size: ${(props: any) => props.theme.fontMedium};
+          margin-right: ${(props: any) => props.theme.spacing};
+
+          .clamp {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+          }
+        }
+
+        .moreBtn {
+          height: 100%;
+          transition: transform 300ms ease-in-out;
+
+          .clicked {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .views {
+        font-size: ${(props: any) => props.theme.fontSmall};
+        color: ${(props: any) => props.theme.grayDarkColor};
+      }
+    }
   }
-`;
 
-const MoreBtn = styled.button`
-  height: 100%;
-  transition: transform 300ms ease-in-out;
-  clicked {
-    transform: rotate(180deg);
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
   }
-`;
-
-const Views = styled.span`
-  font-size: ${(props: any) => props.theme.fontSmall};
-  color: ${(props: any) => props.theme.grayDarkColor};
 `;
 
 const Actions = styled.ul`
@@ -250,10 +261,14 @@ const Actions = styled.ul`
     font-size: ${(props: any) => props.theme.fontSmall};
     color: ${(props: any) => props.theme.grayDarkColor};
 
-    FontAwesomeIcon {
+    svg {
       margin: 0 auto;
       margin-bottom: ${(props: any) => props.theme.spacingSmall} 0;
       font-size: ${(props: any) => props.theme.fontRegular};
+
+      .active {
+        color: ${(props: any) => props.theme.blueColor};
+      }
     }
   }
 `;
@@ -264,38 +279,37 @@ const Channel = styled.div`
   border-top: 1px solid ${(props: any) => props.theme.grayLightColor};
   border-bottom: 1px solid ${(props: any) => props.theme.grayLightColor};
 
-  Metadata {
+  .metadata {
     display: flex;
     align-items: center;
     padding: ${(props: any) => props.theme.spacingSmall} 0;
+
+    img {
+      width: ${(props: any) => props.theme.avatarSize};
+      height: ${(props: any) => props.theme.avatarSize};
+      border-radius: 50%;
+      margin-right: ${(props: any) => props.theme.spacing};
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+
+      .name {
+        font-size: ${(props: any) => props.theme.fontMedium};
+      }
+      .subscribers {
+        font-size: ${(props: any) => props.theme.fontSmall};
+        color: ${(props: any) => props.theme.grayDarkColor};
+      }
+    }
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
+  button {
+    text-transform: uppercase;
+    color: ${(props: any) => props.theme.redColor};
+    font-size: ${(props: any) => props.theme.fontMedium};
   }
-
-  img {
-    width: ${(props: any) => props.theme.avatarSize};
-    height: ${(props: any) => props.theme.avatarSize};
-    border-radius: 50%;
-    margin-right: ${(props: any) => props.theme.spacing};
-  }
-`;
-
-const Name = styled.span`
-  font-size: ${(props: any) => props.theme.fontMedium};
-`;
-
-const Subscribers = styled.span`
-  font-size: ${(props: any) => props.theme.fontSmall};
-  color: ${(props: any) => props.theme.grayDarkColor};
-`;
-
-const Subscribe = styled.button`
-  text-transform: uppercase;
-  color: ${(props: any) => props.theme.redColor};
-  font-size: ${(props: any) => props.theme.fontMedium};
 `;
 
 const UpNext = styled.section`
@@ -306,23 +320,41 @@ const UpNext = styled.section`
     color: ${(props: any) => props.theme.grayDarkColor};
     margin-bottom: ${(props: any) => props.theme.spacingSmall};
   }
-`;
 
-const Item = styled.li`
-  display: flex;
-  margin-top: ${(props: any) => props.theme.spacing};
-`;
+  .item {
+    display: flex;
+    margin-top: ${(props: any) => props.theme.spacing};
 
-const Img = styled.div`
-  flex-basis: 35%;
-  margin-right: ${(props: any) => props.theme.spacing};
-  width: 100%;
-`;
+    .moreBtn {
+      flex-basis: 5%;
+      height: 100%;
+    }
+  }
 
-const ItemInfo = styled.div`
-  flex-basis: 60%;
-  display: flex;
-  flex-direction: column;
+  .image {
+    flex-basis: 35%;
+    margin-right: ${(props: any) => props.theme.spacing};
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .itemInfo {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+
+    .name,
+    .views {
+      font-size: ${(props: any) => props.theme.fontMicro};
+      color: ${(props: any) => props.theme.grayDarkColor};
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: ${(props: any) => props.theme.spacing};
+  }
 `;
 
 export default Home;
