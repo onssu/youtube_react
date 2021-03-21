@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
+import { generateMedia } from "styled-media-query";
 import loadable from "@loadable/component";
 import {
   faYoutube,
@@ -11,10 +12,11 @@ import {
   faCaretDown,
   faShare,
   faPlus,
+  faTableTennis,
 } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import snoopy from "components/snoopy.jpg";
+import snoopy from "components/image/snoopy.jpg";
 
 const Home: React.FC = () => {
   return (
@@ -33,7 +35,9 @@ const Home: React.FC = () => {
 
       {/* Video Player */}
       <Player>
-        <video controls src={require("components/Cat.mp4")} />
+        <video controls>
+          <source src="components/video/Cat.mp4" type="video/mp4" />
+        </video>
       </Player>
 
       <InfoAndUpNext>
@@ -77,7 +81,9 @@ const Home: React.FC = () => {
             </li>
             <li>
               <button>
-                <FontAwesomeIcon icon={faPlus} size="2x" />
+                <a href="components/video/Cat.mp4" download>
+                  <FontAwesomeIcon icon={faPlus} size="2x" />
+                </a>
                 <span>Save</span>
               </button>
             </li>
@@ -152,6 +158,13 @@ const Home: React.FC = () => {
   );
 };
 
+const customMedia = generateMedia({
+  lgDesktop: "1350px",
+  mdDesktop: "1150px",
+  tablet: "960px",
+  smTablet: "768px",
+});
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -220,7 +233,7 @@ const InfoAndUpNext = styled.div`
           font-size: ${(props: any) => props.theme.fontMedium};
           margin-right: ${(props: any) => props.theme.spacing};
 
-          .clamp {
+          &:focus {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
@@ -232,7 +245,7 @@ const InfoAndUpNext = styled.div`
           height: 100%;
           transition: transform 300ms ease-in-out;
 
-          .clicked {
+          &:focus {
             transform: rotate(180deg);
           }
         }
@@ -244,6 +257,10 @@ const InfoAndUpNext = styled.div`
       }
     }
   }
+
+  ${customMedia.greaterThan("smTablet")`
+    flex-direction: row;
+  `}
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -261,12 +278,16 @@ const Actions = styled.ul`
     font-size: ${(props: any) => props.theme.fontSmall};
     color: ${(props: any) => props.theme.grayDarkColor};
 
-    svg {
+    svg,
+    a {
       margin: 0 auto;
       margin-bottom: ${(props: any) => props.theme.spacingSmall} 0;
       font-size: ${(props: any) => props.theme.fontRegular};
+    }
 
-      .active {
+    &:active,
+    &:focus {
+      svg {
         color: ${(props: any) => props.theme.blueColor};
       }
     }
@@ -309,6 +330,12 @@ const Channel = styled.div`
     text-transform: uppercase;
     color: ${(props: any) => props.theme.redColor};
     font-size: ${(props: any) => props.theme.fontMedium};
+
+    /* &:focus,
+    &:hover {
+      color: ${(props: any) => props.theme.whiteColor};
+      background-color: ${(props: any) => props.theme.redColor};
+    } */
   }
 `;
 
@@ -352,8 +379,12 @@ const UpNext = styled.section`
     }
   }
 
+  ${customMedia.greaterThan("smTablet")`
+    padding: var(--spacing);
+  `}
+
   @media screen and (min-width: 768px) {
-    padding: ${(props: any) => props.theme.spacing};
+    padding: var(--spacing);
   }
 `;
 
