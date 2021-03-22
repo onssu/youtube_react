@@ -17,8 +17,10 @@ import {
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import snoopy from "components/image/snoopy.jpg";
+import cat from "components/video/Cat2.mp4";
 
 const Home: React.FC = () => {
+  const [state, setState] = useState(0);
   return (
     <Container>
       {/* Header */}
@@ -36,7 +38,7 @@ const Home: React.FC = () => {
       {/* Video Player */}
       <Player>
         <video controls>
-          <source src="components/video/Cat.mp4" type="video/mp4" />
+          <source src={cat} type="video/mp4" />
         </video>
       </Player>
 
@@ -158,13 +160,6 @@ const Home: React.FC = () => {
   );
 };
 
-const customMedia = generateMedia({
-  lgDesktop: "1350px",
-  mdDesktop: "1150px",
-  tablet: "960px",
-  smTablet: "768px",
-});
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -212,6 +207,9 @@ const Player = styled.section`
 `;
 
 const InfoAndUpNext = styled.div`
+  display: flex;
+  flex-direction: column;
+
   .info {
     padding: ${(props: any) => props.theme.spacing};
 
@@ -258,11 +256,7 @@ const InfoAndUpNext = styled.div`
     }
   }
 
-  ${customMedia.greaterThan("smTablet")`
-    flex-direction: row;
-  `}
-
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     flex-direction: row;
   }
 `;
@@ -379,12 +373,8 @@ const UpNext = styled.section`
     }
   }
 
-  ${customMedia.greaterThan("smTablet")`
-    padding: var(--spacing);
-  `}
-
-  @media screen and (min-width: 768px) {
-    padding: var(--spacing);
+  @media (min-width: 768px) {
+    padding: ${(props: any) => props.theme.spacing};
   }
 `;
 
