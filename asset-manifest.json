@@ -1,27 +1,30 @@
 {
   "files": {
     "main.css": "/youtube_react/static/css/main.71bc9330.chunk.css",
-    "main.js": "/youtube_react/static/js/main.c5436fea.chunk.js",
-    "main.js.map": "/youtube_react/static/js/main.c5436fea.chunk.js.map",
-    "runtime-main.js": "/youtube_react/static/js/runtime-main.88345d29.js",
-    "runtime-main.js.map": "/youtube_react/static/js/runtime-main.88345d29.js.map",
+    "main.js": "/youtube_react/static/js/main.c52fd53d.chunk.js",
+    "main.js.map": "/youtube_react/static/js/main.c52fd53d.chunk.js.map",
+    "runtime-main.js": "/youtube_react/static/js/runtime-main.ef250ff7.js",
+    "runtime-main.js.map": "/youtube_react/static/js/runtime-main.ef250ff7.js.map",
     "static/js/2.2ef53af3.chunk.js": "/youtube_react/static/js/2.2ef53af3.chunk.js",
     "static/js/2.2ef53af3.chunk.js.map": "/youtube_react/static/js/2.2ef53af3.chunk.js.map",
-    "static/js/3.b846530f.chunk.js": "/youtube_react/static/js/3.b846530f.chunk.js",
-    "static/js/3.b846530f.chunk.js.map": "/youtube_react/static/js/3.b846530f.chunk.js.map",
-    "static/js/4.17334a2d.chunk.js": "/youtube_react/static/js/4.17334a2d.chunk.js",
-    "static/js/4.17334a2d.chunk.js.map": "/youtube_react/static/js/4.17334a2d.chunk.js.map",
+    "static/js/3.cd81843f.chunk.js": "/youtube_react/static/js/3.cd81843f.chunk.js",
+    "static/js/3.cd81843f.chunk.js.map": "/youtube_react/static/js/3.cd81843f.chunk.js.map",
+    "static/js/4.60c9fe8a.chunk.js": "/youtube_react/static/js/4.60c9fe8a.chunk.js",
+    "static/js/4.60c9fe8a.chunk.js.map": "/youtube_react/static/js/4.60c9fe8a.chunk.js.map",
     "index.html": "/youtube_react/index.html",
     "static/css/main.71bc9330.chunk.css.map": "/youtube_react/static/css/main.71bc9330.chunk.css.map",
     "static/js/2.2ef53af3.chunk.js.LICENSE.txt": "/youtube_react/static/js/2.2ef53af3.chunk.js.LICENSE.txt",
-    "static/js/3.b846530f.chunk.js.LICENSE.txt": "/youtube_react/static/js/3.b846530f.chunk.js.LICENSE.txt",
+    "static/js/3.cd81843f.chunk.js.LICENSE.txt": "/youtube_react/static/js/3.cd81843f.chunk.js.LICENSE.txt",
     "static/media/Cat2.cdbf53bc.mp4": "/youtube_react/static/media/Cat2.cdbf53bc.mp4",
-    "static/media/snoopy.80b2da0d.jpg": "/youtube_react/static/media/snoopy.80b2da0d.jpg"
+    "static/media/snoopy.80b2da0d.jpg": "/youtube_react/static/media/snoopy.80b2da0d.jpg",
+    "static/media/꽃냥.f29cdd88.jpeg": "/youtube_react/static/media/꽃냥.f29cdd88.jpeg",
+    "static/media/뚱땅.30da526f.png": "/youtube_react/static/media/뚱땅.30da526f.png",
+    "static/media/무.145c7242.png": "/youtube_react/static/media/무.145c7242.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.88345d29.js",
+    "static/js/runtime-main.ef250ff7.js",
     "static/js/2.2ef53af3.chunk.js",
     "static/css/main.71bc9330.chunk.css",
-    "static/js/main.c5436fea.chunk.js"
+    "static/js/main.c52fd53d.chunk.js"
   ]
 }
